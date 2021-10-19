@@ -1,0 +1,18 @@
+# 建镜像
+docker build -t simple-http:v1 .
+# 注册，发送到docker hub
+
+docker login  # 登陆，需要去docker hub 注册
+docker tag simple-http:v1 baozi520/simple-http:v1
+docker push baozi520/simple-http:v1
+
+# 启动容器
+ocker run -d -p 8012:8011 simple-http:v1  
+curl 127.0.0.1:8012/healthz  # 发现是正常的，返回200
+
+docker ps  #查看容器 
+# 查看pid
+docker inspect 64348dba8634 |grep Pid
+# 进入空间
+nsenter -n -t11497
+ifconfig 
