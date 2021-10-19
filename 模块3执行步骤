@@ -1,3 +1,7 @@
+#编译
+chmod +x ./build.sh
+./build.sh
+
 # 建镜像
 docker build -t simple-http:v1 .
 # 注册，发送到docker hub
